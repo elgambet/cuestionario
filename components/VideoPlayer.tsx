@@ -76,8 +76,9 @@ const VideoPlayer = forwardRef<VideoPlayerRef, VideoPlayerProps>(
           playsInline
           muted
           preload="metadata"
+          onError={(e) => console.error("Video error:", e)}
         >
-          <source src="/video.mp4" type="video/mp4" />
+          <source src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/video.mp4`} type="video/mp4" />
           Tu navegador no soporta el elemento de video.
         </video>
       </div>
